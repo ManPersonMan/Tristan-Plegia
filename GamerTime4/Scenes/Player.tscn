@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/New Piskel-1.png (3).png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.7858, 31.8574 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( -0.440018, -0.318413 )
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+GRAVITY = 15
+SPEED = 250
+JUMP_HEIGHT = -550
+ACCELERATION = 1.35
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Gun" type="Sprite" parent="."]
+position = Vector2( 23.2247, 4.83306 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+offset = Vector2( 5, -2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Muzzle" type="Position2D" parent="Gun"]
+position = Vector2( 10.2009, -4.96519 )
+
+[node name="GunTimer" type="Timer" parent="."]
+[connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
