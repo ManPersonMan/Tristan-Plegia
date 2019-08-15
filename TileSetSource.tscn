@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/New Piskel-1.png (5).png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Sprite.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/New Piskel-1.png (1).png" type="Texture" id=2]
+[ext_resource path="res://Sprites/New Piskel-2.png (1).png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.99426, 8.0148 )
 
 [node name="Node" type="Node"]
@@ -11,9 +12,26 @@ extents = Vector2( 7.99426, 8.0148 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -40, -9.53674e-007 )
 texture = ExtResource( 1 )
-script = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -9.01506, -6.87953 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2/StaticBody2D"]
+polygon = PoolVector2Array( 7.9405, 0.348454, -7.83216, 16.0359, 8.02576, 16.0359 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 20.4836, -6.04538 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite3/StaticBody2D"]
+polygon = PoolVector2Array( 7.94099, -15.7468, -8.25794, 15.969, 8.11151, 15.969 )
